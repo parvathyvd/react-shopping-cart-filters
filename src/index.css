@@ -2,8 +2,12 @@
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
+  transition: all 0.2s ease;
 }
-
+.logo a:hover{
+  color: rgb(220, 220, 220);
+  text-decoration: none;
+}
 
 
 /* Home Page */
