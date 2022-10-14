@@ -9,6 +9,12 @@ const SingleProduct = ({ product }) => {
     dispatch,
   } = useGlobalContext();
   console.log(cart);
+
+  const {
+    productState: { byStock },
+  } = useGlobalContext();
+  console.log("by stock", byStock);
+
   return (
     <div className="products">
       <Card>

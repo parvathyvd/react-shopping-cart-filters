@@ -19,10 +19,15 @@ const Header = () => {
     dispatch,
   } = useGlobalContext();
   console.log("header", cart);
+
+  const {
+    productState: { searchQuery },
+    productDispatch,
+  } = useGlobalContext();
   return (
     <Navbar bg="dark" style={{ height: "80" }}>
-      <Container>
-        <Navbar.Brand>
+      <Container className="header">
+        <Navbar.Brand className="logo">
           <Link path="/">Shopping Cart</Link>
         </Navbar.Brand>
         <Navbar.Text>
@@ -30,6 +35,13 @@ const Header = () => {
             style={{ width: 500 }}
             placeholder="Search a product"
             className="m-auto"
+            value={searchQuery}
+            onChange={(e) => {
+              productDispatch({
+                type: "SEARCH",
+                payload: e.target.value,
+              });
+            }}
           ></FormControl>
         </Navbar.Text>
         <Nav>
@@ -38,7 +50,7 @@ const Header = () => {
               {<FaShoppingCart color="white" fontSize="25px" />}
               <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>
-            <Dropdown.Menu style={{ minWidth: 370 }}>
+            <Dropdown.Menu className="dropdown-cart">
               {cart.length > 0 ? (
                 cart.map((pr) => {
                   return (
@@ -75,7 +87,7 @@ const Header = () => {
                 <span style={{ padding: 10 }}>Cart is Empty</span>
               )}
               <Link to="/cart">
-                <Button style={{ width: "95%", margin: "0 10px" }}>
+                <Button style={{ width: "90%", margin: "0 10px" }}>
                   Go To Cart
                 </Button>
               </Link>

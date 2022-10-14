@@ -1,6 +1,7 @@
-a{
+.logo a{
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 
@@ -49,19 +50,40 @@ a{
 .ratings{
   display: flex;
 }
+.dropdown-cart{
+  min-width: 375px !important;
+  background: red;
+  padding: 2rem 5rem;
+}
 
 /* Media Queries */
 @media (max-width: 771px) {
+
+
   .filters {
     width: 40%;
     padding: 10px;
     margin: 5px;
   }
+    .dropdown-cart.dropdown-menu {
+      left: -70%;
+    }
+    .dropdown-cart {
+      min-width: 180px !important;
+      background: red;
+      padding: 2rem 5rem;
+    }
 
+.header{
+  flex-direction: column;
+}
   .filters>span {
     font-size: 10px;
   }
 
+  .navbar-text input{
+    display: none;
+  }
   .title {
     font-size: 18px !important;
   }
